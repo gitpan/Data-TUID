@@ -1,42 +1,53 @@
-use inc::Module::Install;
 
-name     'Data-TUID';
-all_from 'lib/Data/TUID.pm';
-author   'Robert Krimen <rkrimen@cpan.org>';
-license  'perl';
+use strict;
+use warnings;
 
-resources repository => 'http://github.com/robertkrimen/Data-TUID/tree/master';
 
-{
-    require ExtUtils::MakeMaker;
-    use strict;
-    no strict 'refs';
 
-    my $libscan = \&{"ExtUtils::MM_Any::libscan"};
-    *{"ExtUtils::MM_Any::libscan"} = sub {
-        return '' unless $libscan->(@_);
-        return '' if $_[1] =~ /\.sw[p-z]$/;
-        return $_[1];
-    };
+use ExtUtils::MakeMaker 6.31;
+
+
+
+my %WriteMakefileArgs = (
+                       'test' => {
+                                   'TESTS' => 't/*.t'
+                                 },
+                       'NAME' => 'Data::TUID',
+                       'DISTNAME' => 'Data-TUID',
+                       'CONFIGURE_REQUIRES' => {
+                                                 'ExtUtils::MakeMaker' => '6.31'
+                                               },
+                       'AUTHOR' => 'Robert Krimen <robertkrimen@gmail.com>',
+                       'BUILD_REQUIRES' => {
+                                             'Test::Most' => '0',
+                                             'Encode::Base32::Crockford' => '0',
+                                             'Data::UUID' => '0'
+                                           },
+                       'ABSTRACT' => 'A smaller and more communicable pseudo-UUID',
+                       'EXE_FILES' => [],
+                       'VERSION' => '0.0111_1',
+                       'PREREQ_PM' => {},
+                       'LICENSE' => 'perl'
+                     );
+
+
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
+  my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
+  my $pp = $WriteMakefileArgs{PREREQ_PM}; 
+  for my $mod ( keys %$br ) {
+    if ( exists $pp->{$mod} ) {
+      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod}; 
+    }
+    else {
+      $pp->{$mod} = $br->{$mod};
+    }
+  }
 }
 
-{
-    map { my ($pk, $vr) = split m/\s/; build_requires $pk => $vr || 0 } grep { ! /^\s*#/ } split m/\n/, <<_END_;
-Test::Most
-_END_
+delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
+  unless eval { ExtUtils::MakeMaker->VERSION(6.52) };
 
-    map { my ($pk, $vr) = split m/\s/; requires $pk => $vr || 0 } grep { ! /^\s*#/ } split m/\n/, <<_END_;
-Encode::Base32::Crockford
-Data::UUID::LibUUID
-_END_
-}
+WriteMakefile(%WriteMakefileArgs);
 
-if (-e 'inc/.author') {
-    my $all_from = join '/', 'lib', split m/-/, name . '.pm';
-    `perldoc -tF $all_from > README` if ! -e 'README' || (stat $all_from)[9] > (stat 'README')[9];
-}
 
-auto_install;
-
-WriteAll;
 
