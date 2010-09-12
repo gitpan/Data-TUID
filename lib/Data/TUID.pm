@@ -1,6 +1,6 @@
 package Data::TUID;
 BEGIN {
-  $Data::TUID::VERSION = '0.0111_1';
+  $Data::TUID::VERSION = '0.0111_2';
 }
 # ABSTRACT: A smaller and more communicable pseudo-UUID
 
@@ -69,7 +69,7 @@ Data::TUID - A smaller and more communicable pseudo-UUID
 
 =head1 VERSION
 
-version 0.0111_1
+version 0.0111_2
 
 =head1 SYNOPSIS
 

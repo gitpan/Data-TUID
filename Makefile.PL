@@ -25,7 +25,7 @@ my %WriteMakefileArgs = (
                                            },
                        'ABSTRACT' => 'A smaller and more communicable pseudo-UUID',
                        'EXE_FILES' => [],
-                       'VERSION' => '0.0111_1',
+                       'VERSION' => '0.0111_2',
                        'PREREQ_PM' => {},
                        'LICENSE' => 'perl'
                      );

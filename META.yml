@@ -17,4 +17,4 @@ name: Data-TUID
 recommends:
   Data::LibUUID: 0
 requires: {}
-version: 0.0111_1
+version: 0.0111_2
