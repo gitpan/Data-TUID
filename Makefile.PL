@@ -11,7 +11,9 @@ use ExtUtils::MakeMaker 6.31;
 my %WriteMakefileArgs = (
   'ABSTRACT' => 'A smaller and more communicable pseudo-UUID',
   'AUTHOR' => 'Robert Krimen <robertkrimen@gmail.com>',
-  'BUILD_REQUIRES' => {},
+  'BUILD_REQUIRES' => {
+    'Test::Most' => '0'
+  },
   'CONFIGURE_REQUIRES' => {
     'ExtUtils::MakeMaker' => '6.31'
   },
@@ -19,8 +21,11 @@ my %WriteMakefileArgs = (
   'EXE_FILES' => [],
   'LICENSE' => 'perl',
   'NAME' => 'Data::TUID',
-  'PREREQ_PM' => {},
-  'VERSION' => '0.0111_3',
+  'PREREQ_PM' => {
+    'Data::UUID' => '0',
+    'Encode::Base32::Crockford' => '0'
+  },
+  'VERSION' => '0.0111_4',
   'test' => {
     'TESTS' => 't/*.t'
   }

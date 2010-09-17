@@ -2,7 +2,8 @@
 abstract: 'A smaller and more communicable pseudo-UUID'
 author:
   - 'Robert Krimen <robertkrimen@gmail.com>'
-build_requires: {}
+build_requires:
+  Test::Most: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.31
 dynamic_config: 0
@@ -12,4 +13,9 @@ meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: Data-TUID
-version: 0.0111_3
+recommends:
+  Data::UUID::LibUUID: 0
+requires:
+  Data::UUID: 0
+  Encode::Base32::Crockford: 0
+version: 0.0111_4

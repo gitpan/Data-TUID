@@ -1,4 +1,7 @@
 package Data::TUID;
+BEGIN {
+  $Data::TUID::VERSION = '0.0111_4';
+}
 # ABSTRACT: A smaller and more communicable pseudo-UUID
 
 use warnings;
