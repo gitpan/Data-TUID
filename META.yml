@@ -18,4 +18,4 @@ recommends:
 requires:
   Data::UUID: 0
   Encode::Base32::Crockford: 0
-version: 0.0121
+version: 0.0122
