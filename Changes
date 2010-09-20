@@ -1,5 +1,5 @@
-0.0111_6 Friday September 17 12:30:47 PDT 2010:
-    - Make sure tests can deal with missing prerequisites
+0.0120 Sunday September 19 17:10:07 PDT 2010:
+    - Non-development release
 
 0.0111_5 Friday September 17 09:31:53 PDT 2010:
     - Data::UUID->new->create_str not just ->create
