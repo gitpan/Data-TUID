@@ -1,9 +1,3 @@
-NAME
-    Data::TUID - A smaller and more communicable pseudo-UUID
-
-VERSION
-    version 0.0111_2
-
 SYNOPSIS
         use Data::TUID
 
@@ -75,12 +69,3 @@ SEE ALSO
     <http://www.crockford.com/wrmg/base32.html>
 
 ACKNOWLEDGEMENTS
-AUTHOR
-      Robert Krimen <robertkrimen@gmail.com>
-
-COPYRIGHT AND LICENSE
-    This software is copyright (c) 2010 by Robert Krimen.
-
-    This is free software; you can redistribute it and/or modify it under
-    the same terms as the Perl 5 programming language system itself.
-

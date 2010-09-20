@@ -25,7 +25,7 @@ my %WriteMakefileArgs = (
     'Data::UUID' => '0',
     'Encode::Base32::Crockford' => '0'
   },
-  'VERSION' => '0.0120',
+  'VERSION' => '0.0121',
   'test' => {
     'TESTS' => 't/*.t'
   }
